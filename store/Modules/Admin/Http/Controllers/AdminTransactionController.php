@@ -3,6 +3,7 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -38,6 +39,39 @@ class AdminTransactionController extends Controller
              return \response()->json ($html);
          }   
     }
+    // Xử lý trạng thái đơn đơn hàng
+    public function actionTransaction ($id)
+    {
+        $transaction = Transaction::find($id);
+        // dd( $transaction );
+        $orders = Order::where('or_transaction_id', $id)->get();
+        // dd($orders);
+        if($orders)
+        {
+           
+           
+            foreach ($orders as $order)
+            {
+                // dd($order);
+                $product = Product::find($order->or_product_id);
+                 // trừ đi số lượng của sản phẩm
+                $product->pro_number = $product->pro_number - $order->or_qty;
+                 //  Tăng biến pay của sản phẩm lên 1 đơn vị
+                $product->pro_pay++;
+                $product->save();
+            }            
+        }
+        // Cập nhật bảng User
+        \DB::table('users')->where('id',$transaction->tr_user_id)->increment('total_pay');
+        
+
+        // cập nhật lại trạng thái đơn hàng
+         $transaction->tr_status = Transaction:: STATUS_DONE;
+         $transaction->save();
+         return redirect()->back()->with('success','Xử lý đơn hàng thành công.');
+        //  xử lý trường hợp mua 4 sản phẩm, số lượng sản phẩm 2 ...
+
+        }
 
     // Xóa đơn hàng hh
     public function action($action, $id)

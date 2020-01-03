@@ -22,11 +22,11 @@
                         </div>
                         <div class="cakewalk-footer-content">
                             <ul>
-                                <li><a href="#">Giới thiệu về chúng tôi</a></li>
+                                <li><a href="#">Về chúng tôi</a></li>
                                 <li><a href="#">Nghề nghiệp</a></li>
                                 <li><a href="#">Thông tin giao hàng</a></li>
                                 <li><a href="#">Chính sách bảo mật</a></li>
-                                <li><a href="#">Chính sách và quyền lợi</a></li>
+                                <li><a href="#">Điều khoản sử dụng</a></li>
                             </ul>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                 <div class="col-md-2 col-sm-4">
                     <div class="single-snap-footer">
                         <div class="snap-footer-title">
-                            <h4>Thẻ thời trang</h4>
+                            <h4>Thẻ sản phẩm</h4>
                         </div>
                         <div class="cakewalk-footer-content">
                             <ul>
@@ -50,7 +50,7 @@
                 <div class="col-md-2 hidden-sm">
                     <div class="single-snap-footer">
                         <div class="snap-footer-title">
-                            <h4>Thẻ sản phẩm</h4>
+                            <h4>Tổng quan</h4>
                         </div>
                         <div class="cakewalk-footer-content">
                             <ul>

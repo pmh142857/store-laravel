@@ -12,8 +12,8 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Mã Đơn hàng</th>
-                        <th>Mã Khách hàng</th>
+                        <th>Mã ĐH</th>
+                        <th>Mã KH</th>
                         <th>Tài khoản</th>
                         <th>Thông tin</th>
                         <th>Tổng tiền</th>
@@ -35,7 +35,7 @@
                                         <li><i class="far fa-address-card"></i> {{$transaction->tr_name}}</li>
                                         <li><i class="fas fa-phone-square-alt"></i> {{$transaction->tr_phone}}</li>
                                         <li><i class="fas fa-map-signs"></i> {{$transaction->tr_address}}</li>
-                                        <li><i class="fas fa-sms"></i> {{$transaction->tr_note}}...</li>
+                                        <li><i class="fas fa-sms"></i> " {{$transaction->tr_note}} "</li>
                                     </ul>
                                 </td>                           
                                 <td> {{number_format($transaction->tr_total,0,',','.')}} đ</td>
@@ -44,7 +44,7 @@
                                     @if($transaction->tr_status == 1)  
                                         <a href="#" class="label-success label"><i class="fas fa-check-circle"></i> Đã xử lý</a>
                                     @else
-                                        <a href="#" class="label-danger label"><i class="fas fa-exclamation-triangle"></i> Chưa xử lý</a>
+                                    <a href="{{route('admin.get.active.transaction',$transaction->id)}}" class="label-danger label"><i class="fas fa-exclamation-triangle"></i> Chưa xử lý</a>
                                      @endif
                                 </td>                            
                                     <td> [{{$transaction->created_at}}]</td>

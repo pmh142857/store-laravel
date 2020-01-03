@@ -32,7 +32,7 @@ class AdminCategoryController extends Controller
         // show thong tin nhap tu input
         // dd($requestCategory->all());
         $this->inserOrUpdate($requestCategory);
-        return redirect()->back()->with('success','Bạn đã thêm mới danh mục thành công.');
+        return redirect()->back()->with('success','Một danh mục sản phẩm mới đã được tạo.');
     }
 
     // controller edit 
@@ -49,7 +49,7 @@ class AdminCategoryController extends Controller
     public function update(RequestCategory $requestCategory, $id)
     {
         $this->inserOrUpdate($requestCategory, $id);
-        return redirect()->back()->with('success','Cập nhật danh mục sản phẩm thành công.');
+        return redirect()->back()->with('success','Danh mục sản phẩm đã được cập nhật.');
     }
 
     // viet lại ham insert va update
@@ -84,7 +84,7 @@ class AdminCategoryController extends Controller
             switch ($action) {
                 case 'delete':
                     $category->delete();
-                    $messages ='Bạn đã xóa danh mục sản phẩm thành công.';
+                    $messages ='Danh mục sản phẩm đã xóa.';
                     break;
             }
             return redirect()->back()->with('success',$messages);

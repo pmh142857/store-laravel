@@ -11,9 +11,13 @@ class Transaction extends Model
     protected $table = 'transactions';
     protected $guarded = ['*'];
 
+    const STATUS_DONE = 1;
+    const STATUS_DEFAULT = 0;
+
+
     // Mối quan hệ lấy ra tên
-    public function user ()
+    public function user()
     {
-        return $this->belongsTo( User::class, 'tr_user_id');
+        return $this->belongsTo(User::class, 'tr_user_id');
     }
 }

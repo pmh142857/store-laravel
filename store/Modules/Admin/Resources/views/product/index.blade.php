@@ -113,11 +113,14 @@
                             </tr>        
                  
                         @endforeach
+                       
 
                     @endif            
                     
                     
                 </tbody>
             </table>
+            {{-- Phân trang admin sản phẩm --}}
+            {!! $products->links()!!}
     </div>
 @stop

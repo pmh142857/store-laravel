@@ -27,10 +27,15 @@ Route::group(['namespace' => 'Auth'], function () {
     // Dang xuat    
     Route::get('dang-xuat', 'LoginController@getLogout')->name('get.logout.user');
 });
-// Xem 
+// Xem ,khách thăm
 Route::get('/','HomeController@index')->name('home');
 Route::get('danh-muc/{slug}-{id}', 'CategoryController@getListProduct')->name('get.list.product');
 Route::get('sanpham/{slug}-{id}', 'ProductDetailController@productDetail')->name('get.detail.product');
+
+// Bài viết
+Route::get('bai-viet', 'ArticleController@getListArticle')->name('get.list.article');
+Route::get('bai-viet/{slug}-{id}', 'ArticleController@getDetailArticle')->name('get.detail.article');
+
 
 //Gio hang  
 Route::prefix('shopping')->group(function () {

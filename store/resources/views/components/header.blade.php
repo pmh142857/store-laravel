@@ -30,7 +30,7 @@
                                         @endif	
                                     </ul>			
                             </li>
-                            <li class="expand"><a href="index.html">Tin tức</a>                                								
+                            <li class="expand"><a href="{{route('get.list.article')}}" title="Tin tức">Tin tức</a>                                								
                             </li>
                             <li class="expand"><a href="index.html">Giới thiệu</a>                                								
                             </li>

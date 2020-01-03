@@ -22,7 +22,7 @@
                 <div class="features-curosel">
                     @foreach ($productHot as $proHot)
                     <!-- single-product start --> 
-                   
+                    
                     <div class="col-lg-12 col-md-12">                                                                     
                         <div class="single-product first-sale">
                              <div class="product-img">

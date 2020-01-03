@@ -51,7 +51,7 @@ class AdminArticleController extends Controller
     public function update(RequestArticle $requestArticle, $id)
     {
         $this->insertOrUpdate($requestArticle, $id);
-        return redirect()->back();
+        return redirect()->back()->with('success','Bài viết đã được cập nhật.');
     }
 
     public function insertOrUpdate($requestArticle, $id = '')
@@ -74,6 +74,7 @@ class AdminArticleController extends Controller
             }            
         }   
         $article->save();
+        return redirect()->back()->with('success','Bài viết đã được tạo.');
 
         // dd($requestArticle-> all());
     }
@@ -81,15 +82,18 @@ class AdminArticleController extends Controller
     // Ham action Delete bai viet
     public function action($action, $id)
     {
+        $messages = "";
         if ($action) {
             $article = Article::find($id);
             switch ($action) {
                 case 'delete':
                     $article->delete();
+                    $messages ="Bài viết đã được xóa. ";
                     break;
                 case 'active':
                     $article->a_active = $article->a_active ? 0 : 1;
                     $article->save();
+                    $messages ="Trạng thái bài viết đã được thay đổi. ";
                     // dd('OK');
                     break;
                     // case 'hot':
@@ -97,7 +101,7 @@ class AdminArticleController extends Controller
                     //     $article->save();
                     //     break;
             }
-            return redirect()->back();
+            return redirect()->back()->with('success',$messages);
         }
     }
 }

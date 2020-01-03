@@ -8,21 +8,26 @@ use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-class ShoppingCartController extends Controller
+class ShoppingCartController extends FrontendController
 {
     // Thêm sản phẩm vào giỏ hàng
     public function addProduct(Request $request, $id)
     {
         // dd($id);
         // Lấy id sản phẩm muốn mua vào cart
-        $product = Product::select('pro_name', 'id', 'pro_price', 'pro_sale', 'pro_avatar')->find($id);
-        if (!$product) return redirect()->route('/'); // ve home
+        $product = Product::select('pro_name', 'id', 'pro_price', 'pro_sale', 'pro_avatar','pro_number')->find($id);
+        if (!$product) return redirect('/'); // ve home
         // thay đổi giá khi có khuyến mãi
         $price = $product->pro_price;
         if ($product->pro_sale) {
             $price =  $price * (100 - $product->pro_sale)/100;
         }
-
+        // dd($product->pro_number)  ;
+        // Kiểm tra số lượng sản phẩm
+        if ($product->pro_number == 0 )
+        {
+            return redirect()->back()->with('warning','Sản phẩm đã hết hàng, vui lòng chọn sản phẩm khác.');
+        }
         Cart::add([
             'id' => $id,
             'name' => $product->pro_name,
@@ -34,13 +39,13 @@ class ShoppingCartController extends Controller
                 'price_old' => $product->pro_price
             ]
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success','Thêm vào giỏ hàng thành công.');
     }
     // Xoa san pham trong gio hang theo key
     public function deleteProductItem($key)
     {
         Cart::remove($key);
-        return redirect()->back();
+        return redirect()->back()->with('success','Sản phẩm đã xóa khỏi giỏ hàng của bạn.');
     }
 
     // Danh sách giỏ hàng
@@ -95,6 +100,6 @@ class ShoppingCartController extends Controller
         }
         // Thanh toan xong thì xóa giỏ hàng
         Cart::destroy();
-        return redirect()->route('home');
+        return redirect()->route('home')->with('info','Bạn đã mua hàng thành công.');
     }
 }

@@ -36,7 +36,7 @@ class AdminContactController extends Controller
             // 
             case 'delete':
                 $contact->delete();
-                $messages ='Bạn đã xóa một thông tin lên hệ.';
+                $messages ='Thông tin lên hệ đã xóa.';
                 break;               
         }
         return redirect()->back()->with('success',$messages);

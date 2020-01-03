@@ -20,7 +20,7 @@ class AdminProductController extends Controller
         if ($request->name) $products->where('pro_name', 'like', '%' . $request->name . '%');
         if ($request->cate) $products->where('pro_category_id', $request->cate);
 
-        $products = $products->orderByDesc('id')->paginate(10); // phan trang
+        $products = $products->orderByDesc('id')->paginate(5); // phan trang
 
         // lay danh muc ra trong tim kiem
         $categories = $this->getCategories();
@@ -44,7 +44,7 @@ class AdminProductController extends Controller
     {
         // dd($requestProduct->all());
         $this->insertOrUpdate($requestProduct);
-        return redirect()->back()->with('success','Bạn vừa thêm mới một sản phẩm thành công.');
+        return redirect()->back()->with('success','Một sản phẩm mới đã được thêm.');
     }
 
     // Ham chinh sua san pham
@@ -59,7 +59,7 @@ class AdminProductController extends Controller
     public function update(RequestProduct $requestProduct, $id)
     {
         $this->insertOrUpdate($requestProduct, $id);
-        return redirect()->back()->with('success','Cập nhật sản phẩm thành công.');
+        return redirect()->back()->with('success','Sản phẩm đã được cập nhật.');
     }
 
 
