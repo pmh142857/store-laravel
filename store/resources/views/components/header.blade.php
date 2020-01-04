@@ -5,7 +5,9 @@
             <!-- logo start -->
             <div class="col-md-3 col-sm-12 text-center nopadding-right">
                 <div class="top-logo">
-                <a href="{{route('home')}}"><img src="{{asset('img/logo.gif')}}" alt="" /></a>
+                {{-- <a href="{{route('home')}}"><img src="{{asset('img/logo.gif')}}" alt="" /></a> --}}
+                <a  href="{{route('home')}}"><img style="width: 50%; height: auto;" src="{{asset('img/bb-logo.svg')}}" alt="" /></a>
+                
                 </div>
             </div>
             <!-- logo end -->

@@ -33,7 +33,7 @@
                             <td><a href="">{{ $rating->product->pro_name ? $rating->product->pro_name : '[N\A]'}}</a></td>
                             <td>{{$rating->ra_content}}</td>
                             <td>{{$rating->ra_number}}</td>
-                            <td>[{{$rating->created_at}}]</td>
+                            <td>{{$rating->created_at->format('d/m/yy')}}</td>
                             <td>
                                 {{-- sua, xoa user --}}
                             <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.action.rating',['delete',$rating->id])}}"><i class="fas fa-trash-alt"> Xóa</i></a>

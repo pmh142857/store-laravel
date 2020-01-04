@@ -47,7 +47,7 @@
                                     <a href="{{route('admin.get.active.transaction',$transaction->id)}}" class="label-danger label"><i class="fas fa-exclamation-triangle"></i> Chưa xử lý</a>
                                      @endif
                                 </td>                            
-                                    <td> [{{$transaction->created_at}}]</td>
+                                    <td> {{$transaction->created_at->format('d-m-Y') }}</td>
                                 <td>
                                     {{-- xoa, xem transaction --}}
                                 <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 14px" class="btn_customer_action" href="{{route('admin.get.action.transaction',['delete',$transaction->id]) }}"><i class="fas fa-trash-alt"></i></a>

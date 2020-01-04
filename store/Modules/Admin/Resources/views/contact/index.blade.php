@@ -36,12 +36,12 @@
                             <td>{{$contact->ct_content}}</td>
                             <td>
                                 @if ($contact->ct_status == 1)
-                                <span class="label label-success">Đã xử lý</span>
+                                    <span class="label label-success">Đã xử lý</span>
                                 @else 
                                     <span class="label label-warning">Chưa xử lý</span>
                                 @endif
                             </td>
-                            <td>[{{$contact->created_at}}]</td>
+                            <td>{{$contact->created_at->format('d-m-Y')}}</td>
                             <td>
                                 {{-- sua, xoa user --}}
                             <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.action.contact',['delete',$contact->id])}}"><i class="fas fa-trash-alt"></i></a>
