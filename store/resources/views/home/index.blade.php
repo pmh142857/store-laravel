@@ -69,9 +69,6 @@
                      </div>  
                      @endforeach
                      <!-- single-product end -->
-                    
-
-
                      {{-- </div>
                      <div class="col-lg-12 col-md-12">
                         <!-- single-product start -->
@@ -622,8 +619,6 @@
    </div>
 </div>
 <!-- product section end -->
-
-
 
 <!-- product section start -->
 <div class="our-product-area new-product">

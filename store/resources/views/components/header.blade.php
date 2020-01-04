@@ -14,13 +14,13 @@
                 <div class="mainmenu">
                     <nav>
                         <ul>
-                            <li class="expand"><a href="{{route('home')}}">Trang chủ</a>
+                            <li class="expand"><a href="/" title="Trang chủ" >Trang chủ</a>
                                 {{-- <ul class="restrain sub-menu">
                                     <li><a href="index-2.html">Home 2</a></li>
                                 </ul>									 --}}
                             </li>
                             <li class="expand">
-                                <a href="{{route('home')}}">Sản phẩm</a>
+                                <a href="#">Sản phẩm</a>
                                     <ul class="restrain sub-menu">
                                         {{-- Show danh mục sản phẩm , fronend controller --}}
                                         @if (isset($categories))	
