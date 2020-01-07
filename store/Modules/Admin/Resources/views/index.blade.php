@@ -204,10 +204,10 @@
                 type: 'column'
             },
             title: {
-                text: 'Cửa hàng thiết bị công nghệ IOT: <a href="http://store.com" target="_blank">store.com</a>'
+                text: 'Cửa hàng thiết bị công nghệ IOT'
             },
             subtitle: {
-                text: ''
+                text: '<a href="http://store.com" target="_blank">store.com</a>'
             },
             accessibility: {
                 announceNewData: {

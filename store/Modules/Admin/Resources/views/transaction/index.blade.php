@@ -24,18 +24,19 @@
                 </thead>
                 <tbody>
                     {{-- {{dd( $transactions)}} --}}
+                        <?php $stt = 1 ?>
                         @foreach($transactions as $transaction)
                             <tr>
-                                <td>#{{$transaction->id}}</td>
+                            <td>0{{$stt}}0{{$transaction->id}}</td>
                                 <td>KH{{$transaction->tr_user_id}}</td>
                                 {{-- Lấy tên user --}}
                                 <td><i class="fa fa-user" aria-hidden="true"></i> ({{ isset($transaction->user->name) ? $transaction->user->name : '[N\A]' }})</td>
                                 <td> 
                                     <ul style="list-style-type:none;" class="list-group" style="padding-left: 15px">
                                         <li><i class="far fa-address-card"></i> {{$transaction->tr_name}}</li>
-                                        <li><i class="fas fa-phone-square-alt"></i> {{$transaction->tr_phone}}</li>
-                                        <li><i class="fas fa-map-signs"></i> {{$transaction->tr_address}}</li>
-                                        <li><i class="fas fa-sms"></i> " {{$transaction->tr_note}} "</li>
+                                        <li><i class="fas fa-phone-volume"></i></i> {{$transaction->tr_phone}}</li>
+                                        <li> <i class="fas fa-route"></i> {{$transaction->tr_address}}</li>
+                                        <li> " {{$transaction->tr_note}} "</li>
                                     </ul>
                                 </td>                           
                                 <td> {{number_format($transaction->tr_total,0,',','.')}} đ</td>
@@ -54,6 +55,7 @@
                                     <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 14px" class="btn_customer_action js_order_item" data-id="{{$transaction->id}}" data-total="{{$transaction->tr_total}}" href="{{route('admin.get.view.order',[$transaction->id,$transaction->tr_total])}}"><i class="fas fa-eye"></i></a>
                                 </td>                     
                             </tr>
+                            <?php $stt++ ?>
                         @endforeach
                 </tbody>
             </table>

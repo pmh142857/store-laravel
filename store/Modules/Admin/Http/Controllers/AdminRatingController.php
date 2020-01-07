@@ -25,7 +25,7 @@ class AdminRatingController extends Controller
         return view('admin::rating.index', $viewData);
     }
 
-        // xóa đánh giá
+    // xóa đánh giá
     public function action( Request $request, $action, $id)
     {
         if ($action) {

@@ -52,6 +52,7 @@
                 </thead>
                 <tbody>
                          {{-- kiểm tra --}}
+                   <?php $stt = 1 ?>
                     @if (isset($products))
                         @foreach ($products as $product)
                             <?php
@@ -63,8 +64,8 @@
                                     $age = round($product->pro_total_number/ $product->pro_total_rating,2);
                                 }
                              ?>
-                            <tr>
-                                <td>{{$product->id}}</td>
+                            <tr> 
+                                <td>{{$stt}}</td>
                                 <td>
                                     <ul  style="list-style-type:none;" class="list-group" style="padding-left: 15px">
                                         <li><i class="fas fa-shopping-bag" style="color: darkslategray;"></i> <a href="">{{$product->pro_name}}</a></li>
@@ -111,7 +112,7 @@
                                 <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 14px" href="{{route('admin.get.action.product',['delete',$product->id])}}"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>        
-                 
+                        <?php $stt++ ?>
                         @endforeach
                        
 

@@ -30,9 +30,9 @@
                             <td> x{{$product->qty}}</td>
                             <td>{{number_format($product->qty*$product->price,0,',','.') }} đ</td>
                             <td>
-                                <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 14px" href=""> <i class="fas fa-edit"></i> </a>
+                                <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 14px" href=""> <i class="fa fa-edit"></i> </a>
                                 {{-- Xoa san pham khoi don hang theo key --}}
-                                <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 14px" href="{{route('delete.shopping.cart',$key)}}"><i class="fas fa-trash-alt"></i></a>
+                                <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 14px" href="{{route('delete.shopping.cart',$key)}}"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php $i++ ?>

@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 class ShoppingCartController extends FrontendController
 {
+    public function __construct()
+    {
+        parent:: __construct();
+    }
     // Thêm sản phẩm vào giỏ hàng
     public function addProduct(Request $request, $id)
     {

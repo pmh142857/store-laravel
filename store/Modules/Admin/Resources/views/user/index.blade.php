@@ -17,14 +17,15 @@
                         <th>Địa chỉ email</th>
                         <th>Số điện thoại</th>
                         <th>Hình ảnh</th>
-                        <th>Thao tác</th>
+                        {{-- <th>Thao tác</th> --}}
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $stt = 1 ?>
                     @if(isset($users))
                         @foreach ($users as $user)
                         <tr>
-                            <td>{{$user->id}}</td>
+                            <td>{{$stt}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->phone}}</td>
@@ -32,11 +33,12 @@
                                 <img src="{{pare_url_file($user->avatar)}}" alt="" class="img img-responsive" style="width: 80px; height: 80px">
                             </td>
                             <td>
-                                {{-- sua, xoa user --}}
-                            <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.edit.product',$user->id)}}"><i class="fas fa-pen"></i> Cập nhật</a>
-                            <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.action.product',['delete',$user->id])}}"><i class="fas fa-trash-alt"> Xóa</i></a>
+                                
+                            {{-- <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.edit.product',$user->id)}}"><i class="fas fa-pen"></i></a>
+                            <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.action.product',['delete',$user->id])}}"><i class="fas fa-trash-alt"></i></a> --}}
                             </td>
                         </tr>  
+                        <?php $stt++ ?>
                         @endforeach
                     @endif
                 </tbody>

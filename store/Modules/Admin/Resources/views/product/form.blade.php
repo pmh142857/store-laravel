@@ -14,23 +14,12 @@
             </div> 
             <div class="form-group">
                 <label for="name">Mô tả:</label>
-                <textarea name="pro_description" class="form-control" id="" cols="30" rows="3" placeholder="Mô tả ngắn về sản phẩm" >{{old('pro_description',isset($product->pro_description)? ($product->pro_description): '')}}</textarea>
-                {{-- hien thi loi --}}
-                @if($errors->has('pro_name'))
-                <span class="error-text">
-                    {{$errors->first('pro_name')}}
-                </span>
-                 @endif
+                <textarea name="pro_description" class="form-control" id="" cols="30" rows="2" placeholder="Mô tả ngắn về sản phẩm" >{{old('pro_name',isset($product->pro_description)? ($product->pro_description): '')}}</textarea>
             </div>
-            {{-- Nôi dung san pham chua fix --}}
+          
             <div class="form-group">
                 <label for="name">Nội dung chi tiết:</label>
-                <textarea name="pro_content" class="form-control" id="" cols="30" rows="3" placeholder="Nội dung sản phẩm" >{{old('pro_title_seo',isset($product->pro_content)? ($product->pro_content): '')}}</textarea>
-                @if($errors->has('pro_content'))
-                    <span class="error-text">
-                        {{$errors->first('pro_content')}}
-                    </span>
-                 @endif
+                <textarea name="pro_content" class="form-control" id="" cols="30" rows="3" placeholder="Thông tin sản phẩm" >{{old('pro_name',isset($product->pro_content)? ($product->pro_content): '')}}</textarea>
             </div>
             <div class="form-group">
                     <label for="name">Meta title:</label>
@@ -43,9 +32,9 @@
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="name">Loại sản phẩm:</label>
+                <label for="name">Danh mục sản phẩm:</label>
                 <select name="pro_category_id" id="" class="form-control">
-                    <option value="">-- Loại sản phẩm --</option>
+                    {{-- <option value="">-- Loại sản phẩm --</option> --}}
                     <!-- Lay loai san pham trong danh muc -->
                     @if(isset($categories))
                         @foreach($categories as $category)
@@ -53,16 +42,10 @@
                         @endforeach
                     @endif
                 </select>
-                {{-- hien thi loi --}}
-                @if($errors->has('pro_name'))
-                <span class="error-text">
-                    {{$errors->first('pro_name')}}
-                </span>
-             @endif
             </div>
             <div class="form-group">
                     <label for="name">Giá sản phẩm: (VNĐ)</label>
-                    <input type="number" placeholder="Giá sản phẩm" class="form-control" value="{{old('pro_price',isset($product->pro_price) ? $product->pro_price :'1000')}}" name="pro_price">
+                    <input type="number" placeholder="Giá sản phẩm" class="form-control" value="{{old('pro_price',isset($product->pro_price) ? $product->pro_price :'0')}}" name="pro_price">
                     {{-- hien thi loi --}}
                     @if($errors->has('pro_price'))
                     <span class="error-text">
@@ -80,20 +63,17 @@
                 <input type="number" placeholder="Số lượng sản phẩm"  class="form-control" name="pro_number" value="{{old('pro_number',isset($product->pro_number) ? $product->pro_number :'0')}}" name="pro_number">
             </div>
             <div class="form-group">
-            <img  id="out_img" src="{{asset('images/no_images.png')}}" alt="img" style="width: 80% ;height: 80%">
+                <label for="name">Hình ảnh:</label>
+                <input type="file" id="input_img" name="avatar" class="form-control" >
             </div>
-
             <div class="form-group">
-                    <label for="name">Hình ảnh:</label>
-                    <input type="file" id="input_img" name="avatar" class="form-control" >
+                <img  id="out_img" src="{{asset('images/no_images.png')}}" alt="img" style="width: 80% ;height: 80%">
             </div>
             <div class="checkbox">
                 <label><input type="checkbox" name="hot">Nổi bật</label>
             </div>
         </div>
-        
     </div>
-
     <button type="submit" class="btn btn-success">Lưu thông tin</button>
 </form>
 

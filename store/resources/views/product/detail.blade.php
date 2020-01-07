@@ -69,7 +69,7 @@
     </div>
 </div>
 
-<div class="product-details-area">
+<div class="product-details-area" id="content_product" data-id="{{$productDetail->id}}" >
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-sm-5 col-xs-12">
@@ -79,7 +79,7 @@
                         <div style="height:420px;width:420px;" class="zoomWrapper"><img id="zoom1" src="{{asset(pare_url_file($productDetail->pro_avatar))}}" data-zoom-image="{{pare_url_file($productDetail->pro_avatar)}}" alt="big-1" style="position: absolute;"></div>
                         </a>
                     </div>
-                    <div class="single-zoom-thumb">
+                    {{-- <div class="single-zoom-thumb">
                         <div class="bx-wrapper" style="max-width: 365px;"><div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 83px;"><ul class="bxslider" id="gallery_01" style="width: 8215%; position: relative; transition-duration: 0s; transform: translate3d(-380px, 0px, 0px);"><li class="bx-clone" style="float: left; list-style: none; position: relative; width: 80px; margin-right: 15px;" aria-hidden="true">
                                 <a href="#" class="elevatezoom-gallery" data-image="{{pare_url_file($productDetail->pro_avatar)}}" data-zoom-image="{{pare_url_file($productDetail->pro_avatar)}}"><img src="{{pare_url_file($productDetail->pro_avatar)}}" alt="zo-th-5"></a>
                             </li><li class="bx-clone" style="float: left; list-style: none; position: relative; width: 80px; margin-right: 15px;" aria-hidden="true">
@@ -113,7 +113,7 @@
                             <li class="" style="float: left; list-style: none; position: relative; width: 80px; margin-right: 15px;" aria-hidden="true">
                                 <a href="#" class="elevatezoom-gallery" data-image="{{asset(pare_url_file($productDetail->pro_avatar))}}" data-zoom-image="{{asset(pare_url_file($productDetail->pro_avatar))}}"><img src="{{asset(pare_url_file($productDetail->pro_avatar))}}" alt="ex-big-3"></a>
                             </li>
-                        <li style="float: left; list-style: none; position: relative; width: 80px; margin-right: 15px;" class="bx-clone" aria-hidden="true">
+                             <li style="float: left; list-style: none; position: relative; width: 80px; margin-right: 15px;" class="bx-clone" aria-hidden="true">
                                 <a href="#" class="elevatezoom-gallery active" data-update="" data-image="{{pare_url_file($productDetail->pro_avatar)}}" data-zoom-image="{{pare_url_file($productDetail->pro_avatar)}}"><img src="{{pare_url_file($productDetail->pro_avatar)}}" alt="zo-th-1"></a>
                             </li><li class="bx-clone" style="float: left; list-style: none; position: relative; width: 80px; margin-right: 15px;" aria-hidden="true">
                                 <a href="#" class="elevatezoom-gallery" data-image="{{pare_url_file($productDetail->pro_avatar)}}" data-zoom-image="{{pare_url_file($productDetail->pro_avatar)}}"><img src="{{pare_url_file($productDetail->pro_avatar)}}" alt="zo-th-2"></a>
@@ -122,7 +122,7 @@
                             </li><li class="bx-clone" style="float: left; list-style: none; position: relative; width: 80px; margin-right: 15px;" aria-hidden="true">
                                 <a href="#" class="elevatezoom-gallery" data-image="img/product-details/big-4.jpg" data-zoom-image="img/product-details/ex-big-4.jpg"><img src="img/product-details/th-4.jpg" alt="zo-th-4"></a>
                             </li></ul></div><div class="bx-controls bx-has-controls-direction"><div class="bx-controls-direction"><a class="bx-prev" href="">Prev</a><a class="bx-next" href="">Next</a></div></div></div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">
@@ -144,7 +144,7 @@
 
                                 <div class="pro-rating">
                                     @for($i =1;$i<=5; $i++)
-                                <a href="#"><i class="fa fa-star {{$i<=$ageDetail ? 'active' : ''}}"></i></a>
+                                        <a href="#"><i class="fa fa-star {{$i<=$ageDetail ? 'active' : ''}}"></i></a>
                                     @endfor
                                 </div>
                                 <div class="price-boxes">
@@ -154,7 +154,7 @@
                             <div class="product-desc">
                             <p>{{$productDetail->pro_description}}</p>
                             </div>
-                            <p class="availability in-stock">Còn hàng: <span>Trong kho</span></p>
+                            <p class="availability in-stock">Số lượng sản phẩm: <span> {{$productDetail->pro_number}} Trong kho</span></p>
                             <div class="actions-e">
                                 <div class="action-buttons-single">
                                     <div class="inputx-content">
@@ -162,7 +162,7 @@
                                         <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty">
                                     </div>
                                     <div class="add-to-cart">
-                                        <a href="#">Thêm giỏ hàng</a>
+                                        <a href="{{route('add.shopping.cart',$productDetail->id)}}">Thêm giỏ hàng</a>
                                     </div>
                                     <div class="add-to-links">
                                         <div class="add-to-wishlist">
@@ -175,7 +175,7 @@
                                 </div>
                             </div>
                             <div class="singl-share">
-                                <a href="#"><img src="img/single-share.png" alt=""></a>
+                            {{-- <a href="#"><img src="{{asset(pare_url_file($productDetail->pro_avatar))}}" alt=""></a> --}}
                             </div>
                         </div>
                     </div>
@@ -260,7 +260,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
         });
-        
+       
         $(function(){
             let listStart = $(".list_start .fa");
             listRatingText =  {
@@ -271,6 +271,7 @@
                          5:'Tuyệt vời quá',   
                         }  
 
+            
             //  bắt sự kiện hover
             listStart.mouseover(function(){
                 // khai báo con trỏ
@@ -338,6 +339,34 @@
                 }
 
             });
+
+            // lưu id sản phẩm vào storage
+            let idProduct = $("#content_product").attr('data-id');
+            
+            // Lấy giá trị storage id sản phẩm đã xem
+            let products = localStorage.getItem('products');
+            
+            if(products == null)
+            {
+                arrayProduct = new Array();
+                arrayProduct.push(idProduct);
+                localStorage.setItem('products',JSON.stringify(arrayProduct));
+            }else {
+                // // lấy giá trị mãng đã lưu
+                // let products = localStorage.getItem('products');
+
+                // Chuyển về mảng
+                products = $.parseJSON(products);
+
+                if (products.indexOf(idProduct) == -1)
+                {
+                    products.push(idProduct);
+                    localStorage.setItem('products',JSON.stringify(products));
+                }
+                console.log(products);
+            }
+            
+
 
         });
 

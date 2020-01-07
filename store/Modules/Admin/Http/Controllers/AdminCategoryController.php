@@ -13,7 +13,7 @@ class AdminCategoryController extends Controller
     // controller tu Module chua admin 
     public function index()
     {
-        $categories = Category::select('id', 'c_name', 'c_title_seo', 'c_active')->get();
+        $categories = Category::select('id', 'c_name', 'c_title_seo', 'c_active','c_home')->get();
         $viewData = [
             'categories' => $categories
         ];
@@ -32,7 +32,7 @@ class AdminCategoryController extends Controller
         // show thong tin nhap tu input
         // dd($requestCategory->all());
         $this->inserOrUpdate($requestCategory);
-        return redirect()->back()->with('success','Một danh mục sản phẩm mới đã được tạo.');
+        return redirect()->back()->with('success', 'Một danh mục sản phẩm mới đã được tạo.');
     }
 
     // controller edit 
@@ -49,7 +49,7 @@ class AdminCategoryController extends Controller
     public function update(RequestCategory $requestCategory, $id)
     {
         $this->inserOrUpdate($requestCategory, $id);
-        return redirect()->back()->with('success','Danh mục sản phẩm đã được cập nhật.');
+        return redirect()->back()->with('success', 'Danh mục sản phẩm đã được cập nhật.');
     }
 
     // viet lại ham insert va update
@@ -65,6 +65,7 @@ class AdminCategoryController extends Controller
             $category->c_name = $requestCategory->name;
             $category->c_slug = str_slug($requestCategory->name); //slug dinh dang tren url danh+muc+san+pham 
             $category->c_icon = str_slug($requestCategory->icon);
+           
             // toan tu 3 ngoi
             $category->c_title_seo = $requestCategory->c_title_seo ? $requestCategory->c_title_seo : $requestCategory->name;
             $category->c_description_seo = $requestCategory->c_description_seo;
@@ -78,16 +79,30 @@ class AdminCategoryController extends Controller
 
     // Ham Delete
     public function action($action, $id)
-    {   $messages="";
+    {
+        $messages = "";
         if ($action) {
+
             $category = Category::find($id);
             switch ($action) {
                 case 'delete':
                     $category->delete();
-                    $messages ='Danh mục sản phẩm đã xóa.';
+                    $messages = 'Danh mục sản phẩm đã xóa.';
+                    break;
+
+                case 'home':
+                    $category->c_home = $category->c_home == 1 ? 0 : 1;
+                    $category->save();
+                    $messages = 'Cập nhật thành công.';
+                    break;
+                
+                case 'active':
+                    $category->c_active = $category->c_active == 1 ? 0 : 1;
+                    $category->save();
+                    $messages = 'Đã thay đổi trạng thái.';
                     break;
             }
-            return redirect()->back()->with('success',$messages);
+            return redirect()->back()->with('success', $messages);
         }
     }
 }

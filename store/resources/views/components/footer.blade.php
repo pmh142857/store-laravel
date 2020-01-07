@@ -22,11 +22,10 @@
                         </div>
                         <div class="cakewalk-footer-content">
                             <ul>
-                                <li><a href="#">Về chúng tôi</a></li>
-                                <li><a href="#">Nghề nghiệp</a></li>
-                                <li><a href="#">Thông tin giao hàng</a></li>
-                                <li><a href="#">Chính sách bảo mật</a></li>
-                                <li><a href="#">Điều khoản sử dụng</a></li>
+                                <li><a href="{{route('get.about_us')}}" target="_blank">Về chúng tôi</a></li>
+                                <li><a href="{{route('get.shipment_details')}}" target="_blank" >Thông tin giao hàng</a></li>
+                                <li><a href="{{route('get.privacy_policy')}}" target="_blank" >Chính sách bảo mật</a></li>
+                                <li><a href="{{route('get.terms_of_use')}}" target="_blank" >Điều khoản sử dụng</a></li>
                             </ul>
                         </div>
                     </div>

@@ -18,6 +18,9 @@ class AdminUserController extends Controller
             'users'=> $users
         ];
         return view('admin::user.index',$viewData);
+
+        
+
     }
 
     

@@ -16,6 +16,7 @@
 // });
 
 //Làm đăng kí đăng nhập
+
 Auth::routes();
 Route::group(['namespace' => 'Auth'], function () {
     // Dang ky
@@ -49,12 +50,23 @@ Route::group(['prefix' => 'gio-hang','middleware'=>'CheckLoginUser'],function ()
     Route::post('/thanh-toan', 'ShoppingCartController@saveInforShoppingCart');
 
 });
-// Nhóm route ajax
+// Nhóm route ajax lấy đánh giá
 Route::group(['prefix' =>'ajax','middleware'=>'CheckLoginUser'],function () {
     Route::post('/danh-gia/{id}', 'RatingController@saveRating')->name('post.rating.product');
    
 });
+// Nhóm route ajax lấy sản phẩm đã xem
+Route::group(['prefix' =>'ajax'],function () {
+    Route::post('/view-product', 'HomeController@renderProductView')->name('post.product.view');
+   
+});
 
-// Lien he
+// Nhóm page static
+
+Route::get('ve-chung-toi', 'PageStaticController@aboutUs')->name('get.about_us');
+Route::get('thong-tin-giao-hang', 'PageStaticController@shipmentDetails')->name('get.shipment_details');
+Route::get('chinh-sach-bao-mat', 'PageStaticController@privacyPolicy')->name('get.privacy_policy');
+Route::get('dieu-khoan-su-dung', 'PageStaticController@termsOfUse')->name('get.terms_of_use');
+
 Route::get('lien-he', 'ContactController@getContact')->name('get.contact');
 Route::post('lien-he', 'ContactController@saveContact');

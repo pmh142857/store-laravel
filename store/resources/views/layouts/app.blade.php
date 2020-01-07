@@ -17,6 +17,7 @@
         <!-- Favicon
 		============================================ -->
 		<link rel="shortcut icon" type="image/x-icon" href="{{asset('img/favicon.ico')}}">
+		
 		{{-- token laravel ajax --}}
 		<meta name="csrf-token" content="{{ csrf_token() }}" />
 		
@@ -26,7 +27,8 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 		
 		{{-- Using a Font Awesome kit   --}}
-		<script src="https://kit.fontawesome.com/f39fb36db2.js" crossorigin="anonymous"></script>
+		{{-- <script src="https://kit.fontawesome.com/f39fb36db2.js" crossorigin="anonymous"></script> --}}
+
  		<!-- CSS  -->
 		
 		<!-- Bootstrap CSS

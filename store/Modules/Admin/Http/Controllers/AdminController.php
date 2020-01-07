@@ -50,7 +50,8 @@ class AdminController extends Controller
         ];
 
         // show danh sách đơn hàng mới
-        $transactionNews = Transaction::with('user:id,name')->limit(5)->orderByDesc('id')->get();
+        $transactionNews = Transaction::with('user:id,name')
+        ->limit(6)->orderByDesc('id')->get();
 
         //  Dữ liệu truyền
         $viewData = [

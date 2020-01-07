@@ -34,7 +34,7 @@
                             </li>
                             <li class="expand"><a href="{{route('get.list.article')}}" title="Tin tức">Tin tức</a>                                								
                             </li>
-                            <li class="expand"><a href="index.html">Giới thiệu</a>                                								
+                        <li class="expand"><a href="{{route('get.about_us')}}">Giới thiệu</a>                                								
                             </li>
                             <li class="expand"><a href="{{route('get.contact')}}">Liên hệ</a>                                								
                             </li>

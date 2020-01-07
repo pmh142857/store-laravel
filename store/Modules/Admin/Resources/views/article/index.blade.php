@@ -25,7 +25,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th style="width: 20%">Tên bài viết</th>
+                        <th style="width: 20%">Tiêu đề bài viết</th>
                         <th style="width: 100px">Hình ảnh</th>
                         <th style="width: 300px">Mô tả</th>
                         <th>Trạng thái</th>
@@ -35,10 +35,11 @@
                 </thead>
                 <tbody>
                          {{-- kiểm tra --}}
+                    <?php $stt = 1 ?>
                     @if (isset($articles))
                         @foreach ($articles as $article)
                             <tr>
-                                <td>{{$article->id}}</td>
+                                <td>{{$stt}}</td>
                                 <td>
                                     {{$article->a_name}}
                                 </td>
@@ -55,15 +56,15 @@
                                 </td>
                                 <td>
                                      {{-- ngày tạo --}}
-                                    {{$article->created_at}}
+                                    {{$article->created_at->format('d-m-Y')}}
                                 </td>
                                 <td>
                                     {{-- sua, xoa bai viet --}}
-                                <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.edit.article',$article->id)}}"><i class="fas fa-pen-alt"></i></a>
+                                <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.edit.article',$article->id)}}"><i class="fas fa-edit"></i></a>
                                 <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.action.article',['delete',$article->id])}}"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>        
-                 
+                            <?php $stt++ ?>
                         @endforeach
 
                     @endif            
