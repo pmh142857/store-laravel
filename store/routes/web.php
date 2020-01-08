@@ -44,7 +44,7 @@ Route::prefix('shopping')->group(function () {
     Route::get('/delete/{id}', 'ShoppingCartController@deleteProductItem')->name('delete.shopping.cart');
     Route::get('/danh-sach', 'ShoppingCartController@getListShoppingCart')->name('get.list.shopping.cart');
 });
-// Thanh toan, check dang nhap
+// Thanh toan, check dang nhap user
 Route::group(['prefix' => 'gio-hang','middleware'=>'CheckLoginUser'],function () {
     Route::get('/thanh-toan', 'ShoppingCartController@getFormPay')->name('get.form.pay');
     Route::post('/thanh-toan', 'ShoppingCartController@saveInforShoppingCart');

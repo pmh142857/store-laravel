@@ -12,9 +12,19 @@
 */
 
 
-//Nhom Route Admin
-Route::prefix('admin')->group(function () {
+// Route Đăng nhập Admin
+Route::prefix('authenticate')->group(function(){
+    Route::get('/login', 'AdminAuthController@getLogin')->name('admin.login');
+    Route::post('/login', 'AdminAuthController@postLogin');
+    // Đăng xuất
+    Route::get('/dang-xuat', 'AdminAuthController@logoutAdmin')->name('admin.logout');
 
+
+});
+
+//Nhom Route Admin, check đăng nhập admin
+Route::prefix('admin')->middleware('CheckLoginAdmin')->group(function () {
+    
     // Route admin home
     Route::get('/', 'AdminController@index')->name('admin.home');
 
@@ -89,7 +99,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/create', 'AdminPageStaticController@store');
         Route::get('/update{id}', 'AdminPageStaticController@edit')->name('admin.get.edit.page_static');
         Route::post('/update{id}', 'AdminPageStaticController@update');
-        // cac hanh dong: Delete
+     // cac hanh dong: Delete
         Route::get('/{action}/{id}','AdminPageStaticController@action')->name('admin.get.action.page_static');
     
     });

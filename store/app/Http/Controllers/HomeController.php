@@ -41,7 +41,7 @@ class HomeController extends FrontendController
         // dd("OK");
         return view('home.index', $viewData);
     }
-    // 
+    // Xử lý show sản phẩm đã xem 
     public function renderProductView(Request $request)
     {
         if($request->ajax())

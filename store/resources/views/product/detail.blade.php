@@ -340,6 +340,7 @@
 
             });
 
+            // js show sản phẩm đã xem
             // lưu id sản phẩm vào storage
             let idProduct = $("#content_product").attr('data-id');
             
@@ -365,8 +366,6 @@
                 }
                 console.log(products);
             }
-            
-
 
         });
 

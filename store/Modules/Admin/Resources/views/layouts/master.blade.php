@@ -31,17 +31,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">STORE IOT</a>
+                    <a class="navbar-brand" href="#">STORE IOT | Xin chào {{get_data_user('admins','name')}}</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Help</a></li>
+                        
+                        <li><a href="{{route('admin.logout')}}">Đăng xuất</a></li>
+                        <li><a href="#">Cài đặt</a></li>
                     </ul>
                     <form class="navbar-form navbar-right">
-                        <input type="text" class="form-control" placeholder="Search...">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm ...">
                     </form>
                 </div>
             </div>
@@ -63,6 +62,7 @@
                         <li class="{{\Request::route()->getName()=='admin.get.list.user' ? 'active':'' }}" ><a href="{{route('admin.get.list.user')}}">Thành viên</a></li>
                         <li class="{{\Request::route()->getName()=='admin.get.list.contact' ? 'active':'' }}" ><a href="{{route('admin.get.list.contact')}}">Liên hệ</a></li>
                         <li class="{{\Request::route()->getName()=='admin.get.list.page_static' ? 'active':'' }}" ><a href="{{route('admin.get.list.page_static')}}">Trang tĩnh</a></li>
+                        
                     </ul>                 
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
