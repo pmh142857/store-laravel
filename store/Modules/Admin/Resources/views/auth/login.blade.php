@@ -9,7 +9,7 @@
         
         <div class="panel panel-default" >
             <div class="panel-heading">
-                <div class="panel-title text-center">admin.store.com</div>
+                <div class="panel-title text-center"> admin.store.com</div>
             </div>     
 
             <div class="panel-body" >
@@ -25,7 +25,6 @@
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input id="password" type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
                     </div>                                                                  
-
                     <div class="form-group">
                         <!-- Button -->
                         <div class="col-sm-12 controls">

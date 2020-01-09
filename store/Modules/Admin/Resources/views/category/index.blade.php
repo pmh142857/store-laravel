@@ -13,7 +13,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Tên danh mục</th>
+                        <th>Tên danh mục</th> 
                         <th>Title seo</th>
                         <th>Trang chủ</th>
                         <th>Trạng thái</th>
@@ -25,8 +25,8 @@
                     <?php $i = 1 ?>
                     @if(isset($categories))
                         @foreach ($categories as $category)
-                        {{-- {{dd($category->c_home)}}
-                        {{dd($category->getHome($category->c_home))}} --}}
+                        {{-- {{dd($category->c_home)}} --}}
+                        {{-- {{dd($category->getHome($category->c_home))}} --}}
                             <tr>
                                 <td>{{$i}}</td>
                                 <td>{{$category->c_name}}</td>

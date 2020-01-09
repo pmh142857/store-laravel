@@ -30,11 +30,11 @@ class Category extends Model
     // Trang thai 
     protected $home = [
         1 => [
-            'name' => 'Public',
+            'name' => 'Hiện trang chủ',
             'class' => 'label-success'
         ],
         0 => [
-            'name' => 'Private',
+            'name' => 'Ẩn',
             'class' => 'label-danger'
         ]
 

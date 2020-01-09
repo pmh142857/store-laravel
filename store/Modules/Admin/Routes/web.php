@@ -76,6 +76,9 @@ Route::prefix('admin')->middleware('CheckLoginAdmin')->group(function () {
     // ql thanh vien
     Route::group(['prefix' => 'user'], function () {
         Route::get('/', 'AdminUserController@index')->name('admin.get.list.user');
+        // cac hanh dong: Delete hh
+        // Route::get('/{delete}/{id}', 'AdminRatingController@deleteUser')->name('admin.get.delete.user');
+
     });
 
     // ql đánh giá

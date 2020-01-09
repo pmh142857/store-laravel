@@ -17,6 +17,7 @@
                         <th>Địa chỉ email</th>
                         <th>Số điện thoại</th>
                         <th>Hình ảnh</th>
+                        <th>Thao tác</th>
                         {{-- <th>Thao tác</th> --}}
                     </tr>
                 </thead>
@@ -34,8 +35,8 @@
                             </td>
                             <td>
                                 
-                            {{-- <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.edit.product',$user->id)}}"><i class="fas fa-pen"></i></a>
-                            <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.action.product',['delete',$user->id])}}"><i class="fas fa-trash-alt"></i></a> --}}
+                            {{-- <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.edit.product',$user->id)}}"><i class="fas fa-pen"></i></a> --}}
+                            {{-- <i style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.delete.user',['delete',$user->id])}}"><i class="fas fa-trash-alt"></i></i> --}}
                             </td>
                         </tr>  
                         <?php $stt++ ?>

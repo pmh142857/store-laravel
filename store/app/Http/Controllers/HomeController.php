@@ -29,7 +29,8 @@ class HomeController extends FrontendController
         // giới hạn các danhc muc 3
         $categoriesHome = Category::with('products')
             ->where('c_home', Category::HOME)
-            ->limit(3)->get();
+            ->limit(3)
+            ->get();
 
         // dd($categories);
 

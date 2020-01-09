@@ -28,7 +28,8 @@
                         <th style="width: 20%">Tiêu đề bài viết</th>
                         <th style="width: 100px">Hình ảnh</th>
                         <th style="width: 300px">Mô tả</th>
-                        <th>Trạng thái</th>
+                        <th>Nổi bật</th>
+                        <th>Trang chủ</th>
                         <th>Ngày tạo</th>
                         <th>Thao tác</th>
                     </tr>
@@ -49,10 +50,15 @@
                                 </td>
 
                                 <td>{{$article->a_description}}</td>
-                                <td>
-                                    {{-- Thay đổi trạng thái getsatus --}}
-                                    <a href="{{route('admin.get.action.article',['active',$article->id])}}" class="label {{$article->getStatus($article->a_active)['class']}}">{{$article->getStatus($article->a_active)['name']}}</a>
                                 
+                                <td>
+                                    {{-- Thay đổi bài viết nổi bật getHot --}}
+                                    <a href="{{route('admin.get.action.article',['hot',$article->id])}}" class="label {{$article->getHot($article->c_hot)['class']}}">{{$article->getHot($article->c_hot)['name']}}</a> 
+                                </td>
+                                <td>
+                                    {{-- Thay đổi trạng thái getSatus --}}
+                                    {{-- {{ dd($article->a_active)}} --}}
+                                    <a href="{{route('admin.get.action.article',['active',$article->id])}}" class="label {{$article->getStatus($article->a_active)['class']}}">{{$article->getStatus($article->a_active)['name']}}</a>
                                 </td>
                                 <td>
                                      {{-- ngày tạo --}}
@@ -65,12 +71,12 @@
                                 </td>
                             </tr>        
                             <?php $stt++ ?>
-                        @endforeach
+                           @endforeach
 
-                    @endif            
-                    
-                    
+                    @endif
                 </tbody>
             </table>
+            {{-- Phân trang --}}
+            {!! $articles->links()!!}
     </div>
 @stop

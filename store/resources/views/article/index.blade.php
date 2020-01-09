@@ -1,5 +1,13 @@
 @extends('layouts.app')
 @section('content')
+
+<style>
+    .main-contact-area {
+        margin-top: 20px;
+    }
+
+</style>
+
 <div class="breadcrumbs">
     <div class="container">
         <div class="row">
@@ -24,12 +32,15 @@
 <div class="main-contact-area">
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                {{-- show bài viết --}}
                 @include('components.article') 
             </div>
-            <div class="col-sm-4">
-
+            <div class="col-sm-3">
+                <h5>Bài viết nổi bật</h5>
+                <div class="list_article_hot">
+                    @include('components.article_hot')
+                </div>
             </div>
         </div>
     </div>	

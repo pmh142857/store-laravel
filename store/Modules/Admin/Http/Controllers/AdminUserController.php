@@ -19,9 +19,21 @@ class AdminUserController extends Controller
         ];
         return view('admin::user.index',$viewData);
 
-        
-
     }
+
+    // xóa đánh user
+    // public function deleteUser( Request $request, $delete, $id)
+    // {
+    //     if ($delete) {
+    //         $user = User::find($id);
+    //         switch ($delete) {
+    //             case 'delete':
+    //                 $user->delete();
+    //                 break;
+    //         }
+    //         return redirect()->back();
+    //     }
+    // }
 
     
 }

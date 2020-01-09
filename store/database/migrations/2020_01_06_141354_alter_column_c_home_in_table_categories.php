@@ -26,7 +26,7 @@ class AlterColumnCHomeInTableCategories extends Migration
         //
         Schema::table('categories', function (Blueprint $table) {
             $table->dropColumn('c_avatar'); 
-            $table->dropColumn('c_home');           
+            $table->dropColumn('c_home');
         });
     }
 }

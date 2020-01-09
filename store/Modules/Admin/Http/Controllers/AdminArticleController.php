@@ -19,7 +19,7 @@ class AdminArticleController extends Controller
         // kiểm tra reques tìm theo tên
         if($request->name) $articles->where('a_name','like','%'.$request->name.'%');
         // phân trang
-        $articles = $articles->paginate(10);
+        $articles = $articles->paginate(5);
         
         $viewData = [
             'articles' => $articles
@@ -79,7 +79,7 @@ class AdminArticleController extends Controller
         // dd($requestArticle-> all());
     }
 
-    // Ham action Delete bai viet
+    // Ham action
     public function action($action, $id)
     {
         $messages = "";
@@ -92,15 +92,16 @@ class AdminArticleController extends Controller
                     break;
                 case 'active':
                     $article->a_active = $article->a_active ? 0 : 1;
-                    $article->save();
-                    $messages ="Trạng thái bài viết đã được thay đổi. ";
+                    $messages ="Hiện thị bài viết ở trang chủ đã được thay đổi. ";
+
                     // dd('OK');
                     break;
-                    // case 'hot':
-                    //     $article->pro_hot = $article->pro_hot ? 0 : 1;
-                    //     $article->save();
-                    //     break;
+                case 'hot':
+                    $article->c_hot = $article->c_hot ? 0 : 1;
+                    $messages ="Trạng thái tin nổi bật đã được thay đổi. ";
+                    break;
             }
+            $article->save();
             return redirect()->back()->with('success',$messages);
         }
     }

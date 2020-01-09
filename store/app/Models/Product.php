@@ -19,7 +19,7 @@ class Product extends Model
     ];
 
    
-    // Trang thai 
+    // Trang thai hiển thị sản phẩm
     protected $status = [
         1 => [
             'name' => 'Công khai',
@@ -27,19 +27,19 @@ class Product extends Model
         ],
         0 => [
             'name' => 'Riêng tư',
-            'class' => 'label-danger'
+            'class' => 'label-default'
         ]
     ];
     
-    // Trang thái hot
+    // Trang thái sản phẩm nổi bật
     protected $hot = [
         1 => [
-            'name' => 'Có',
-            'class' => 'label-success'
+            'name' => 'Nổi bật',
+            'class' => 'label-danger'
         ],
         0 => [
             'name' => 'Không',
-            'class' => 'label-danger'
+            'class' => 'label-success'
         ]
     ];
 

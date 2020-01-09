@@ -1,3 +1,4 @@
+{{-- Sản phẩm đã xem --}}
 <div class="">
     <div class="container">   
         <div class="area-title">

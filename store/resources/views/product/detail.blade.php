@@ -184,20 +184,17 @@
         </div>
         <div class="col-md-12">
             <div class="single-product-tab">
-                  <!-- Nav tabs -->
-                <ul class="details-tab">
-                    <li class="active"><a href="#home" data-toggle="tab">Mô tả sản phẩm</a></li>
-                    <li class=""><a href="#messages" data-toggle="tab"> Đánh giá (1)</a></li>
-                </ul>
-                  <!-- Tab panes -->
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="home">
+                    <h3>Thông tin sản phẩm</h3>
+                  <!-- Tab panes -->
+                </div> 
+                    <div role="tabpanel" class="tab-pane active" id="home" style="border-radius: 5px; border:1px solid #dedede; " >
                         <div class="product-tab-content">
                             {!!$productDetail->pro_content!!}	
                         </div>
                     </div>
                     <div class="componet_rating" style="margin-bottom: 20px" >
-                        <h3>Đánh giá sản phẩm</h3>
+                        <h3 margin: 10 15px; >Đánh giá sản phẩm</h3>
                         <div class="componet_rating_content" style="display: flex; align-items: center; border-radius: 5px; border:1px solid #dedede; ">
                             <div class="rating_item" style="width:20%;position: relative; ">
                             <span class="fa fa-star" style="font-size: 100px; display: block; color: darkorange; margin: 0 auto; text-align: center;" ></span><b style="position: absolute; top: 50%; left:50%;transform:translateX(-50%) translateY(-50%);color: white; font-size: 20px;">{{$ageDetail}}</b>

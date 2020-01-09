@@ -55,7 +55,7 @@
                                             </div>
                                             <div class="compare-button">
                                                 <a href="{{route('add.shopping.cart',$proHot->id)}}" title="Add to Cart"><i class="icon-bag"></i></a>
-                                            </div>									
+                                            </div>
                                         </div>
                                         <div class="quickviewbtn">
                                             <a href="{{route('get.detail.product',[$proHot->pro_slug,$proHot->id])}}" title="Add to Compare"><i class="fa fa-retweet"></i></a>
@@ -86,7 +86,7 @@
 <!-- product section end -->
 
 {{-- sản phẩm đã xem --}}
-<div id="product_view"> </div>   
+<div id="product_view"> </div>
 
 {{-- Show bài viết  --}}
 @if(isset($articleNews))
@@ -102,20 +102,17 @@
                   <div class="col-md-4 col-sm-4 col-xs-12">
                    <div class="single-post" style="margin-bottom: 40px">
                        <div class="post-thumb">
-                           <a href="#">
+                           <a href="{{route('get.detail.article',[$arNew->a_slug,$arNew->id])}}">
                            <img src="{{asset(pare_url_file($arNew->a_avatar_seo))}}" alt="" style="width: 370px; height: 280px "/>
                            </a>
                        </div>
                        <div class="post-thumb-info">
                            <div class="post-time">
-                               {{-- <a href="#">Beauty</a>
-                               <span>/</span>
-                               <span>Post by</span>
-                               <span>BootExperts</span> --}}
+                            <p><i class="fa fa-calendar" aria-hidden="true"></i> {{$arNew->created_at->format('d-m-Y')}}</p>
                            </div>
                            <div class="postexcerpt">
-                           <p style=" height: 40px"> {{$arNew->a_name}}</p>
-                               <a href="#" class="read-more">Xem thêm</a>
+                               <a href="{{route('get.detail.article',[$arNew->a_slug,$arNew->id])}}"> <p style=" height: 40px"><i class="fa fa-chevron-right" aria-hidden="true"></i> {{$arNew->a_name}}</p></a>
+                                <a href="{{route('get.detail.article',[$arNew->a_slug,$arNew->id])}}" class="read-more">Xem thêm</a>
                            </div>
                        </div>
                    </div>
@@ -129,7 +126,7 @@
 </div>
 @endif
 <!-- latestpost area end -->
-<!-- block category area start -->
+<!-- Show danh mục sản phẩm nổi bật -->
 <div class="block-category">
    <div class="container">
        <div class="row">
@@ -143,6 +140,7 @@
                         <h2>{{$categoriHome->c_name}}</h2>
                     </div>
                     <!-- block title end -->
+
                     <!-- block carousel start -->
                     @if(isset($categoriHome->products))
                         <div class="block-carousel">
@@ -164,15 +162,14 @@
                                             <a href="{{route('get.detail.product',[$product->pro_slug,$product->id])}}"><img src="{{pare_url_file($product->pro_avatar)}}" style="width: 170px ; height: 208px;" alt="" /></a>
                                         </div>
                                         <div class="category-info">
-                                        <h3><a href="{{route('get.detail.product',[$product->pro_slug,$product->id])}}">{{$product->pro_name}}</a></h3>
-                                        <p>{{$product->pro_description}}</p>
+                                            <h3><a href="{{route('get.detail.product',[$product->pro_slug,$product->id])}}">{{$product->pro_name}}</a></h3>
+                                            <p>{{$product->pro_description}}</p>
                                             <div class="cat-price">{{number_format($product->pro_price,0,',','.')}} đ<span class="old-price">{{number_format($product->pro_price,0,',','.')}} đ</span></div>
                                             <div class="cat-rating">
                                                 @for($i =1;$i<=5; $i++)
                                                     <a href="#"><i class="fa fa-star {{$i<=$ageDetail ? 'active' : ''}}"></i></a>
                                                 @endfor
-    
-                                            </div>								
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- single block end -->
@@ -188,7 +185,7 @@
        </div>
    </div>
 </div>
-<!-- block category area end -->
+
 <!-- testimonial area start -->
 <div class="testimonial-area lap-ruffel">
    <div class="container">
