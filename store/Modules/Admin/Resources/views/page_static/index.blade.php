@@ -27,7 +27,7 @@
                         <th>#</th>
                         <th>Tiêu đề trang</th>       
                         <th>Mục thông tin</th>
-                        <th>Nội dung</th>
+                        
                         <th>Cập nhật</th>
                         <th>Thao tác</th>
                     </tr>
@@ -56,8 +56,8 @@
                                             @break
                                     @endswitch
                                 </td>                 
-                                <td>{!!$page->ps_content!!}</td>
-                                <td>{{$page->ps_name}}</td> 
+                                <td>{{$page->created_at->format('d-m-Y')}}</td>
+                                {{-- <td>{{$page->ps_name}}</td>  --}}
                                 <td>
                                     <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.edit.page_static',$page->id)}}"> <i class="fas fa-edit"></i> </a>
                                     <a style="padding: 5px 10px; border: 1px solid #eee; font-size: 12px" href="{{route('admin.get.action.page_static',['delete',$page->id])}}"> <i class="fas fa-trash-alt"></i></a>

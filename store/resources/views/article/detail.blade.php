@@ -33,10 +33,10 @@
         <div class="row">
             <div class="col-sm-9">
                 <div class="article_content" style="margin-bottom: 20px;">
-                    <h1><i class="fa fa-chevron-right" aria-hidden="true"></i> {{$articleDetail->a_name}}</h1>
+                    {{-- <h1><i class="fa fa-chevron-right" aria-hidden="true"></i> {{$articleDetail->a_name}}</h1> --}}
                     <p style="font-weight: 500; color: darkcyan;"><i class="fa fa-calendar" aria-hidden="true"></i> {{$articleDetail->created_at}}</p>
-                    <img src="{{pare_url_file($articleDetail->a_avatar_seo)}}" alt="">
-                    <p style="font-weight: 500; color: darkcyan;">{{$articleDetail->a_description}}</p>
+                    {{-- <img src="{{pare_url_file($articleDetail->a_avatar_seo)}}" alt=""> --}}
+                    {{-- <p style="font-weight: 500; color: darkcyan;">{{$articleDetail->a_description}}</p> --}}
                     <div>
                         {{-- html --}}
                         {!!$articleDetail->a_content!!}

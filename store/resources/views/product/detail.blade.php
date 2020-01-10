@@ -218,9 +218,6 @@
                                 <a href="" class="js_rating_action" style="width: 200px;background: #288ad6; padding: 10px; color: white; border-radius: 5px;">Đánh giá sản phẩm</a>
                             </div> 
                      </div>
-                     <?php    
-                                                   
-                     ?>
                      {{-- hide --}}
                     <div class="form_rating hide">
                         <div style="display: flex; margin-top:15px; font-size: 15px ">

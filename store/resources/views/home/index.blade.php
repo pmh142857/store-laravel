@@ -103,7 +103,7 @@
                     <!-- block carousel start -->
                     @if(isset($categoriHome->products))
                         <div class="block-carousel">
-                            @foreach ( $categoriHome->products as $product)   
+                            @foreach ( $categoriHome->products as $product)
                                 {{-- Show đánh giá --}}
                                 <?php
                                 // điểm đánh giá trung bình 
@@ -203,9 +203,9 @@
                <div class="crusial-carousel">
                    <div class="crusial-content">
                         <marquee onmouseover=" this.stop()" onmouseout=" this.start()">
-                            <p>“Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."</p>
+                            <p>"Đem lại cho Quý Khách Sản phẩm & Dịch vụ tốt nhất trong lĩnh vực Công nghệ Điện tử và IoT. Chúng tôi đang ngày càng hoàn thiện sản phẩm và dịch vụ của mình nhằm không ngừng đáp ứng sự tin tưởng và niềm tin của khách hàng."</p>
                         </marquee>
-                        <span>Jack Ma</span>
+                        <span>Admin</span>
                    </div>
                    <div class="crusial-content">
                         <marquee onmouseover=" this.stop()" onmouseout=" this.start()">

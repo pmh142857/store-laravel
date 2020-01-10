@@ -1013,7 +1013,7 @@ span.sale-text{
     padding: 0;
 }
 .block-category .block-title h2 {
-    margin: 0;
+    /* margin: 0;
     font-weight: 700;
     font-size: 18px;
     color: #3f3f3f;
@@ -1023,7 +1023,18 @@ span.sale-text{
     position: relative;
     z-index: 1;
 	padding: 8px 20px;
-    border: 1px solid #ebebeb;
+    border: 1px solid #ebebeb; */
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    color: #8a6d3b;
+    text-transform: uppercase;
+    display: inline-block;
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 1;
+    padding: 8px 20px;
+    border: 2px solid #18aeb9;
 }
 .block-image{
     margin-right: 30px;

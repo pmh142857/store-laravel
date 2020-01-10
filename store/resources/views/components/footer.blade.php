@@ -54,7 +54,6 @@
                         <div class="cakewalk-footer-content">
                             <ul>
                                 <li><a href="#">Sơ đồ trang web</a></li>
-                                <li><a href="#">Chính sách bảo mật</a></li>
                                 <li><a href="#">Tìm kiếm nâng cao</a></li>
                                 <li><a href="#">Chi nhánh</a></li>
                                 <li><a href="#">Liên hệ</a></li>
@@ -114,7 +113,7 @@
                         </div>
                         <div class="infof-content">
                             <h3>Email Support</h3>
-                            <p>admin@store.iot.com</p>
+                            <p>admin.store@gamil.com</p>
                         </div>
                     </div>
                 </div>
