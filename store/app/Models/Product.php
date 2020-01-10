@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    // trạng thái PUBLIC/PRIVATE
+    // trạng thái công khai, riêng tư
     const STATUS_PUBLIC = 1;
     const STATUS_PRIVATE = 0;
   

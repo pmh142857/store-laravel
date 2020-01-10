@@ -70,9 +70,9 @@ class AdminTransactionController extends Controller
          $transaction->save();
          return redirect()->back()->with('success','Xử lý đơn hàng thành công.');
         //  xử lý trường hợp mua 4 sản phẩm, số lượng sản phẩm 2 ...
-
         }
 
+        
     // Xóa đơn hàng hh
     public function action($action, $id)
     {

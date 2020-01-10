@@ -23,14 +23,11 @@ class HomeController extends FrontendController
             'pro_active' => Product::STATUS_PUBLIC
         ])->limit(10)->get();
 
-        // Show bài viết mới nhất
-        $articleNews = Article::orderBy('id', 'DESC')->limit(6)->get();
+        // Hiện thị bài viết mới nhất ra trang chủ, c_home = 1
+        $articleNews = Article::where('a_active', Article::HOT)->orderBy('id', 'DESC')->limit(6)->get();
 
         // giới hạn các danhc muc 3
-        $categoriesHome = Category::with('products')
-            ->where('c_home', Category::HOME)
-            ->limit(3)
-            ->get();
+        $categoriesHome = Category::with('products')->where('c_home', Category::HOME_ON)->limit(6)->get();
 
         // dd($categories);
 
@@ -48,12 +45,11 @@ class HomeController extends FrontendController
         if($request->ajax())
         {
             $listID = $request->id;
-            $products = Product::whereIn('id',$listID)->get();
+            $products = Product::whereIn('id',$listID)->limit(8)->get();
             $html = view ('components.product_view',compact('products'))->render();
             
             return response()->json(['data'=> $html]);
         }
 
-        
     }
 }

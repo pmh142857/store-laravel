@@ -30,7 +30,7 @@
                     <!--REVIEW ORDER-->
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                        Danh sách sản phẩm <div class="pull-right"><small><a class="afix-1" href="{{route('get.list.shopping.cart')}}"><h4><i class="far fa-edit"></i></h4></a></small></div>
+                        Danh sách sản phẩm <div class="pull-right"><small><a class="afix-1" href="{{route('get.list.shopping.cart')}}"><h4><i class="fa fa-edit"></i></h4></a></small></div>
                         </div>
                         <div class="panel-body">
                             @foreach ($products as $product)   
@@ -80,13 +80,13 @@
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Địa chỉ:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="address" class="form-control" value="" />
+                                    <input type="text" name="address" class="form-control" required value="" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Tỉnh/Thành phố:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="city" class="form-control" value="" />
+                                    <input type="text" name="city" class="form-control" required value="" />
                                 </div>
                             </div>
                             <div class="form-group">

@@ -4,22 +4,19 @@
 @include('components.slide')
 <!-- end home slider -->
 <style>
+    
     .active {
         color: #ff9705;
     }
 
 </style>
 
-<!-- banner-area start -->
-{{-- @include('components.banner') --}}
-<!-- banner-area end -->
-
-<!-- product section start -->
+<!-- Sản phẩm nổi bật -->
 <div class="our-product-area new-product">
-   <div class="container">   
-       <div class="area-title">
-           <h2>Sản phẩm nổi bật</h2>
-       </div>       
+   <div class="container">
+       <div class="area-title" >
+           <h2 >Sản phẩm nổi bật</h2>
+       </div>
        <!-- our-product area start -->
        <div class="row">
            <div class="col-md-12">
@@ -27,8 +24,7 @@
                 <div class="features-curosel">
                     @foreach ($productHot as $proHot)
                     <!-- single-product start --> 
-                    
-                    <div class="col-lg-12 col-md-12">                                                                     
+                    <div class="col-lg-12 col-md-12">
                         <div class="single-product first-sale">
                              <div class="product-img">
                                  {{-- show hết hàng --}}
@@ -74,62 +70,26 @@
                      </div>  
                      @endforeach
                      <!-- single-product end -->
-                    
                 </div>
-                
-            </div>			
+            </div>
            </div>
        </div>
        <!-- our-product area end -->	
    </div>
 </div>
-<!-- product section end -->
+<!-- Sản phẩm nổi bật  -->
 
-{{-- sản phẩm đã xem --}}
-<div id="product_view"> </div>
+<!-- banner-area start -->
+@include('components.banner')
+<!-- banner-area end -->
 
-{{-- Show bài viết  --}}
-@if(isset($articleNews))
-<div class="latest-post-area">
-   <div class="container">
-       <div class="area-title">
-           <h2>Bài viết mới</h2>
-       </div>
-       <div class="row">
-           <div class="all-singlepost">
-               <!-- single latestpost start -->
-               @foreach ($articleNews as $arNew)
-                  <div class="col-md-4 col-sm-4 col-xs-12">
-                   <div class="single-post" style="margin-bottom: 40px">
-                       <div class="post-thumb">
-                           <a href="{{route('get.detail.article',[$arNew->a_slug,$arNew->id])}}">
-                           <img src="{{asset(pare_url_file($arNew->a_avatar_seo))}}" alt="" style="width: 370px; height: 280px "/>
-                           </a>
-                       </div>
-                       <div class="post-thumb-info">
-                           <div class="post-time">
-                            <p><i class="fa fa-calendar" aria-hidden="true"></i> {{$arNew->created_at->format('d-m-Y')}}</p>
-                           </div>
-                           <div class="postexcerpt">
-                               <a href="{{route('get.detail.article',[$arNew->a_slug,$arNew->id])}}"> <p style=" height: 40px"><i class="fa fa-chevron-right" aria-hidden="true"></i> {{$arNew->a_name}}</p></a>
-                                <a href="{{route('get.detail.article',[$arNew->a_slug,$arNew->id])}}" class="read-more">Xem thêm</a>
-                           </div>
-                       </div>
-                   </div>
-               </div> 
-               @endforeach
-               
-               <!-- single latestpost end -->
-            </div>
-       </div>
-   </div>
-</div>
-@endif
-<!-- latestpost area end -->
-<!-- Show danh mục sản phẩm nổi bật -->
+<!-- Các danh mục nổi bật -->
 <div class="block-category">
    <div class="container">
-       <div class="row">
+        <div class="area-title">
+             <h2> Danh mục nổi bật</h2>
+        </div> 
+        <div class="row">
            @if( isset($categoriesHome))
            <!-- featured block start -->
             @foreach ($categoriesHome as $categoriHome)  
@@ -140,7 +100,6 @@
                         <h2>{{$categoriHome->c_name}}</h2>
                     </div>
                     <!-- block title end -->
-
                     <!-- block carousel start -->
                     @if(isset($categoriHome->products))
                         <div class="block-carousel">
@@ -180,29 +139,85 @@
                     <!-- block carousel end -->
                 </div>
            @endforeach
+           
            <!-- featured block end -->
           @endif
+          
        </div>
    </div>
 </div>
+<!-- Các danh mục nổi bật -->
 
-<!-- testimonial area start -->
+{{-- Bài viết mới nhất  --}}
+@if(isset($articleNews))
+<div class="latest-post-area">
+   <div class="container">
+       <div class="area-title">
+           <h2>Bài viết mới</h2>
+       </div>
+       <div class="row">
+           <div class="all-singlepost">
+               <!-- single latestpost start -->
+               @foreach ($articleNews as $arNew)
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                   <div class="single-post" style="margin-bottom: 40px">
+                       <div class="post-thumb">
+                           <a href="{{route('get.detail.article',[$arNew->a_slug,$arNew->id])}}">
+                           <img src="{{asset(pare_url_file($arNew->a_avatar_seo))}}" alt="" style="width: 370px; height: 280px "/>
+                           </a>
+                       </div>
+                       <div class="post-thumb-info">
+                           <div class="post-time">
+                            <p><i class="fa fa-calendar" aria-hidden="true"></i> {{$arNew->created_at->format('d-m-Y')}}</p>
+                           </div>
+                           <div class="postexcerpt">
+                               <a href="{{route('get.detail.article',[$arNew->a_slug,$arNew->id])}}"> <p style=" height: 40px"><i class="fa fa-chevron-right" aria-hidden="true"></i> {{$arNew->a_name}}</p></a>
+                                <a href="{{route('get.detail.article',[$arNew->a_slug,$arNew->id])}}" class="read-more">Xem thêm</a>
+                           </div>
+                       </div>
+                   </div>
+               </div> 
+               @endforeach
+               
+               <!-- single latestpost end -->
+            </div>
+       </div>
+   </div>
+</div>
+@endif
+<!-- Bài viết mới nhất -->
+
+{{-- sản phẩm đã xem --}}
+<div id="product_view"> </div>
+{{-- sản phẩm đã xem --}}
+
+
+
+
+
+<!-- testimonial area end -->
 <div class="testimonial-area lap-ruffel">
    <div class="container">
        <div class="row">
            <div class="col-md-12">
                <div class="crusial-carousel">
                    <div class="crusial-content">
-                       <p>“Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."</p>
-                       <span>BootExperts</span>
+                        <marquee onmouseover=" this.stop()" onmouseout=" this.start()">
+                            <p>“Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."</p>
+                        </marquee>
+                        <span>Jack Ma</span>
                    </div>
                    <div class="crusial-content">
-                       <p>“Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."</p>
-                       <span>Lavoro Store!</span>
-                   </div>
-                   <div class="crusial-content">
-                       <p>“Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."</p>
-                       <span>MR Selim Rana</span>
+                        <marquee onmouseover=" this.stop()" onmouseout=" this.start()">
+                            <p>“Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."</p>
+                        </marquee>
+                        <span>Jack Ma</span>
+                    </div>
+                    <div class="crusial-content">
+                        <marquee onmouseover=" this.stop()" onmouseout=" this.start()">
+                            <p>“Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."</p>
+                        </marquee>
+                        <span>Jack Ma</span>
                    </div>
                </div>
            </div>
@@ -210,9 +225,13 @@
    </div>
 </div>
 <!-- testimonial area end -->
+
 <!-- Brand Logo Area Start -->
 <div class="brand-area">
    <div class="container">
+    <div class="area-title">
+        <h2>NHÀ CUNG CẤP UY TÍN</h2>
+    </div>
        <div class="row">
            <div class="brand-carousel">
                <div class="brand-item"><a href="#"><img src="img/brand/bg1-brand.jpg" alt="" /></a></div>
@@ -245,9 +264,7 @@
         let routeRenderProduct = '{{ route('post.product.view')}}';
         checkRenderProduct = false;
         $(document).on('scroll',function () {
-         
             if($(window).scrollTop() > 150 && checkRenderProduct == false){
-
                 // console.log('scroll');
                 //  console.log('ok');
                 checkRenderProduct = true;
@@ -267,9 +284,7 @@
                     });
                 }
             }
-            
         });
-        
     })
 
 </script>

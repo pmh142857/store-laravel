@@ -10,7 +10,9 @@
         <div class="panel panel-default" >
             <div class="panel-heading">
                 <div class="panel-title text-center"> admin.store.com</div>
-            </div>     
+                
+                <img src="http://banners.wunderground.com/banner/gizmotimetemp_both/language/www/global/stations/48855.gif" alt="Du bao thoi tiet - Thanh pho Da Nang" title="Dự báo thời tiết - Thành phố Đà Nẵng" height=41 width=127>
+            </div>
 
             <div class="panel-body" >
                 {{-- Form đăng nhập Admin --}}

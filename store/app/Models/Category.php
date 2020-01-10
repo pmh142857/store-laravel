@@ -12,7 +12,8 @@ class Category extends Model
     const STATUS_PUBLIC = 1;
     const STATUS_PRIVATE = 0;
 
-    const HOME = 1;
+    const HOME_ON = 1;
+    const HOME_OFF = 0;
 
     // Trang thai 
     protected $status = [

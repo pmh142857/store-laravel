@@ -29,13 +29,15 @@ class AdminRatingController extends Controller
     public function action( Request $request, $action, $id)
     {
         if ($action) {
+            $thongbao = "";
             $rating = Rating::find($id);
             switch ($action) {
                 case 'delete':
                     $rating->delete();
+                    $thongbao = "Đánh giá đã được loại bỏ";
                     break;
             }
-            return redirect()->back();
+            return redirect()->back()->with('success',$thongbao);
         }
     }
 }

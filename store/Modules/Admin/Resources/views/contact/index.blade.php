@@ -14,22 +14,20 @@
                     <tr>
                         <th>#</th>
                         <th>Tiêu đề</th>
-                        <th>Họ tên</th>                    
+                        <th>Họ tên</th>
                         <th>Email</th>
                         <th>Nội dung</th>
                         <th>Trạng thái</th>
                         <th>Thời gian</th>
                         <th>Thao tác</th>
-
                     </tr>
                 </thead>
                 <tbody>
-                   
                     @if(isset($contacts))
                         @foreach ($contacts as $contact)
                         {{-- {{ dd($contacts)}} --}}
                         <tr>
-                            <td>{{$contact->id}}</td>                 
+                            <td>{{$contact->id}}</td>
                             <td>{{$contact->ct_title}}</td>
                             <td>{{$contact->ct_name}}</td>
                             <td>{{$contact->ct_email}}</td>
